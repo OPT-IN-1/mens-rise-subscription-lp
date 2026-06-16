@@ -12,6 +12,9 @@
       --gray: #e9e9e5;
       --muted: #6d6d68;
       --lime: #caff18;
+      --steel: #8fb2bf;
+      --steel-deep: #355360;
+      --steel-pale: #edf4f6;
       --line: #c9c9c2;
     }
     * { box-sizing: border-box; }
@@ -43,6 +46,11 @@
       letter-spacing: .12em;
       line-height: 1;
     }
+    .dark .eyebrow,
+    .final .eyebrow {
+      background: var(--steel-pale);
+      color: #070707;
+    }
     h1, h2, h3, p {
       margin-top: 0;
       word-break: auto-phrase;
@@ -72,8 +80,34 @@
     .rule { width: 100%; height: 2px; background: var(--ink); margin: 42px 0; }
     .dark .rule { background: #555; }
     .accent { color: var(--lime); }
+    .dark .accent,
+    .final .accent {
+      color: var(--steel);
+    }
     .marker { background: linear-gradient(transparent 62%, var(--lime) 62%); }
     .keep { white-space: nowrap; }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      color: var(--steel-deep);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: .18em;
+    }
+    .section-label::before {
+      content: "";
+      width: 44px;
+      height: 2px;
+      background: currentColor;
+    }
+    .dark .section-label,
+    .hero .section-label,
+    .final .section-label {
+      color: var(--steel);
+    }
     .brand {
       display: inline-flex;
       width: 245px;
@@ -98,7 +132,7 @@
       background: #fff;
       box-shadow: 10px 10px 0 var(--ink);
     }
-    .dark .card { background: #131313; border-color: #444; box-shadow: 10px 10px 0 var(--lime); }
+    .dark .card { background: #131313; border-color: #444; box-shadow: 10px 10px 0 var(--steel-deep); }
     .card h3 { margin-bottom: 12px; }
     .card p { margin-bottom: 0; }
     .num {
@@ -132,6 +166,10 @@
       line-height: 1.6;
       font-weight: 900;
     }
+    .dark .quote,
+    .final .quote {
+      border-left-color: var(--steel);
+    }
     .quote.compact {
       padding: 38px 42px;
       font-size: 25px;
@@ -155,20 +193,36 @@
       min-height: 148px;
       display: grid;
       place-items: center;
-      border: 2px solid #050505;
-      background: linear-gradient(135deg, #ddff50 0%, var(--lime) 54%, #aee800 100%);
-      color: #000;
+      border: 2px solid #090909;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,0) 42%),
+        linear-gradient(135deg, #20242a 0%, #111 58%, #050505 100%);
+      color: #fff;
       text-align: center;
       font-size: 34px;
       line-height: 1.35;
       font-weight: 950;
       letter-spacing: .04em;
-      border-radius: 12px;
+      border-radius: 18px;
       box-shadow:
-        0 9px 0 #050505,
-        0 18px 34px rgba(0,0,0,.24),
-        inset 0 1px 0 rgba(255,255,255,.8);
+        0 10px 0 #090909,
+        0 22px 38px rgba(0,0,0,.26),
+        0 0 0 6px rgba(143,178,191,.14),
+        inset 0 1px 0 rgba(255,255,255,.22);
       text-shadow: none;
+    }
+    .hero .cta-zone,
+    .dark .cta-zone,
+    .final .cta-zone {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 46%),
+        linear-gradient(135deg, #fff 0%, var(--steel-pale) 58%, #d6e5ea 100%);
+      color: #070707;
+      box-shadow:
+        0 10px 0 #000,
+        0 24px 42px rgba(143,178,191,.2),
+        0 0 0 6px rgba(143,178,191,.12),
+        inset 0 1px 0 rgba(255,255,255,.9);
     }
     .cta-zone::before {
       content: "START";
@@ -193,7 +247,8 @@
       place-items: center;
       width: 58px;
       height: 58px;
-      border: 2px solid #050505;
+      border: 2px solid #090909;
+      background: rgba(143,178,191,.18);
       border-radius: 50%;
       font-size: 38px;
       line-height: 1;
@@ -228,6 +283,10 @@
       padding: 610px 68px 90px;
       text-shadow: 0 3px 18px rgba(0,0,0,.9);
     }
+    .hero-copy .section-label,
+    .hero-copy .eyebrow {
+      text-shadow: none;
+    }
     .hero-copy .topline { font-size: 25px; letter-spacing: .1em; margin-bottom: 28px; }
     .hero-copy h1 { max-width: 920px; margin-bottom: 38px; }
     .hero-copy .lead { max-width: 860px; }
@@ -252,7 +311,7 @@
       padding: 34px;
       background: #111;
       color: #fff;
-      border-top: 10px solid var(--lime);
+      border-top: 10px solid var(--steel);
     }
     .rise-item b { display: block; font-size: 60px; line-height: 1; margin-bottom: 18px; }
     .rise-item h3 { font-size: 30px; margin: 0 0 9px; }
@@ -332,7 +391,7 @@
       background: #090909;
       color: #fff;
       text-align: center;
-      border-top: 12px solid var(--lime);
+      border-top: 12px solid var(--steel);
     }
     .price-box .monthly { font-size: 34px; }
     .price-box .big { font-size: 105px; line-height: 1; font-weight: 950; letter-spacing: -.05em; }
@@ -347,7 +406,7 @@
       flex-direction: column;
       justify-content: center;
       background:
-        radial-gradient(circle at 80% 8%, rgba(202,255,24,.15), transparent 30%),
+        radial-gradient(circle at 80% 8%, rgba(143,178,191,.16), transparent 30%),
         #050505;
       color: #fff;
       text-align: center;
@@ -380,6 +439,7 @@
     <img class="hero-photo" src="assets/ryota.jpg" alt="">
     <div class="hero-copy">
       <p class="topline">
+        <span class="section-label">START</span><br>
         <span class="keep">YouTube登録37万人「リョータ」がつくった</span><br>
         <span class="brand-block"><img src="assets/brand-logo-original.png" alt="Men's Rise"></span>
       </p>
@@ -545,6 +605,7 @@
 
   <section class="page" data-page="7">
     <div class="wrap">
+      <span class="section-label">RESULTS</span>
       <img class="results" src="assets/results.jpg" alt="受講生実績">
       <p class="small" style="text-align:center;margin-top:28px"><span class="keep">受講生のプライバシーのため、</span><br>お名前は伏せています。</p>
       <div class="quote">プロに見てもらいながら、<br>言われた通りにやっただけ。<br>それで十分なんです。</div>
